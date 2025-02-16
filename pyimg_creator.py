@@ -74,9 +74,12 @@ box.ht()
 box.pu()
 boxpos = 0
 color = "black"
+drawer.clear()
+drawgrid()
 while end == False:
-    drawer.clear()
-    drawgrid()
+    def update():
+        drawer.clear()
+        drawgrid()
     box.goto(pixelx[boxpos],pixely[boxpos])
     box.clear()
     box.stamp()
@@ -101,7 +104,7 @@ while end == False:
         color = input("what color do you wan to change to?")
     def draw():
         pixels[boxpos] = color
-        
+        update()
     def editsize():
         global pxsize
         pxsize = int(input("what do you want to change the pixel size to?"))
